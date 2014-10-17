@@ -13,6 +13,14 @@
     	<engine name="cordova" version=">=3.3.0" />
     	</engines>
 		<platform name="ios">
+			<config-file parent="/*" target="config.xml">
+				<feature name="ICETEST">
+					<param name="ios-package" value="CDVTest" />
+				</feature>
+			</config-file>
+				
+			<source-file src="src/ios/CDVTest.m" />
+			
 			<config-file target="*-Info.plist" parent="PluginVariable">
 				<string>$PLUGIN_VARIABLE</string>
 			</config-file>
