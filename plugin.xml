@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.telerik.iceplug" version="1.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+		<name>Test Plugins</name>
+		<author>Ice</author>
+		
+		<js-module name="ICETEST" src="www/icetest.js">
+			<clobbers target="ICETEST" />
+		</js-module>
+		
+	<preference name="PLUGIN_VARIABLE" />
+	<engines>
+    	<!-- Requires > 3.3.* because of the custom Framework tag for iOS [CB-5238] -->
+    	<engine name="cordova" version=">=3.3.0" />
+    	</engines>
+		<platform name="ios">
+			<config-file target="*-Info.plist" parent="PluginVariable">
+				<string>$PLUGIN_VARIABLE</string>
+			</config-file>
+		</platform>
+		
+		<platform name="android">
+			<source-file src="src/android/res/values/icetest.xml" target-dir="res/values" />
+			
+			<config-file target="res/values/icetest.xml" parent="/*">
+				<string name="plugin_variable">$PLUGIN_VARIABLE</string>
+			</config-file>
+			
+			<config-file target="res/xml/config.xml" parent="/*">
+				<feature name="ICETEST">
+					<param name="android-package" value="com.telerik.iceplug.TestPlugin"/>
+				</feature>
+			</config-file>
+			
+			<source-file src="src/android/TestPlugin.java"  target-dir="src/com/telerik/iceplug" />
+		</platform>
+		
+		 <platform name="wp8">
+			<config-file target="config.xml" parent="/*">
+				<string name="plugin_variable">$PLUGIN_VARIABLE</string>
+			</config-file>
+			
+		</platform>
+</plugin>
+		
