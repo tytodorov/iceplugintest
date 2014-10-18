@@ -42,11 +42,14 @@
 			<source-file src="src/android/TestPlugin.java"  target-dir="src/com/telerik/iceplug" />
 		</platform>
 		
-		 <platform name="wp8">
-			<config-file target="config.xml" parent="/*">
-				<string name="plugin_variable">$PLUGIN_VARIABLE</string>
-			</config-file>
-			
+		 <platform name="wp8">				
+			<config-file parent="/*" target="config.xml">
+                <preference name="plugin_var">$PLUGIN_VARIABLE</preference>
+				<feature name="ICETEST">
+					<param name="wp-package" value="ICETEST" />
+				</feature>
+			</config-file>	
+            <source-file src="src/wp8/IceTest.cs"/>					
 		</platform>
 </plugin>
 		
